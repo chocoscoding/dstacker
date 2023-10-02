@@ -1,13 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@900&display=swap");
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+}
+canvas {
+  width: 100%;
+  height: 100%;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+#instructions {
+  display: none;
+}
+
+#results,
+#instructions {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(8, 1, 12, 0.86);
+}
+
+a:visited {
+  color: inherit;
+}
+
+#results {
+  display: none;
+  cursor: default;
+}
+
+#results .content,
+#instructions .content {
+  max-width: 300px;
+  padding: 50px;
+  border-radius: 20px;
+}
+
+#results {
+}
+
+#score {
+  position: absolute;
+  color: white;
+  font-size: 3em;
+  font-weight: bold;
+  top: 30px;
+  right: 30px;
+}
+
+.inlineText {
+  display: flex;
+}
+.inlineText button {
+  background-color: #ffffffd7;
+  padding: 5px;
+  border-radius: 6px;
+  cursor: pointer;
+  margin: 0 5px;
+  border: none;
+}
+.made-with-love {
+  z-index: 10000;
+  position: absolute;
+  left: 6px;
+  top: 2px;
+}
+@media screen and (min-width: 500px) {
+  #instructions {
+    display: none;
+  }
+  body:hover #instructions {
+    display: flex;
+  }
 }
