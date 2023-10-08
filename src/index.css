@@ -81,6 +81,10 @@ a:visited {
   left: 6px;
   top: 2px;
 }
+
+a{
+  text-decoration: none;
+}
 @media screen and (min-width: 500px) {
   #instructions {
     display: none;

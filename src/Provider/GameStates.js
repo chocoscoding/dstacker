@@ -1,10 +1,11 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useEffect, useRef, useState } from 'react';
 
 const GameStates = createContext({});
 
 export const GameStatesProvider = ({ children }) => {
     const [stack, setStack] = useState([]);
     const [score, setScore] = useState([]);
+    const speed = useRef(0.004);
     const [overhangs, setOverhangs] = useState([]);
     const [lastTime, setLastTime] = useState([]);
     const [gameOver, setGameOver] = useState(false);
@@ -13,11 +14,28 @@ export const GameStatesProvider = ({ children }) => {
     const [world, setWorld] = useState({});
     const [scene, setScene] = useState({});
 
+
+    useEffect(() => {
+        if (score === 2) {
+            console.log(score);
+            speed.current = 0.009;
+        }
+        if (score === 19) {
+            speed.current = 0.007;
+        }
+        if (score === 29) {
+            speed.current = 0.008;
+        }
+        if (score === 39) {
+            speed.current = 0.009;
+        }
+    }, [score]);
     const contextValue = {
         stack,
         setStack,
         score,
         setScore,
+        speed: speed.current,
         lastTime,
         setLastTime,
         overhangs,
